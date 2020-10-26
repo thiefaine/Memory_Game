@@ -1,0 +1,193 @@
+body
+{
+    background-color: aliceblue;
+}
+
+
+
+#highScoreBoard
+{
+    /*
+    * Used to horizontally center the element
+    */
+    position: absolute;
+    top: 20px;
+    left: 0;
+    right: 0;
+    margin: auto;
+
+    /*
+    * Will take 60% of its parent's width unless it is under 300px.
+    * Height will adapt to its content height unless its undex 80px
+    */
+    width: 60%;
+    min-width: 300px;
+    min-height: 80px;
+
+    border-radius: 20px;
+    opacity: 1;
+    background-color: rgb(55, 55, 63);
+    color: white;
+    text-align: center;
+    font-size: 1.5em;
+
+    box-shadow: 20px 20px 60px black;
+
+    /*
+    * To be sure it is on top of other elements
+    */
+    z-index: 5;
+
+    transition: 0.5s;
+}
+
+#highScoreBoard p
+{
+    /*
+    * This is CSS variables
+    * Link : https://developer.mozilla.org/fr/docs/Web/CSS/Using_CSS_custom_properties
+    */
+    --offset: 20px;
+
+    /*
+    * the function calc allow to do computation with different type of variable
+    * here % and px, you can do all basic operations + - * /
+    * and we can achieve the effect to have the full width minus a certain amount of px and not 1% or 2% that is not fixed
+    */
+    width: calc(100% - var(--offset) * 2);
+    margin: var(--offset);
+    padding-top: var(--offset);
+    border-top: 1px solid white;
+}
+
+#highScoreBoard h5
+{
+    position: absolute;
+    right: 20px;
+    top: 0px;
+
+    font-weight: normal;
+    font-size: 0.6em;
+}
+
+
+
+#gameBoard
+{
+    /*
+    * Used to horizontally center the element
+    */
+    left: 0;
+    right: 0;
+    margin: auto;
+
+
+    width: 0px;
+    background-color: blueviolet;
+}
+
+
+
+.tile
+{
+    /*
+    * Set the displya to inline-block so the element can stack horizontally
+    */
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    margin: 5px;
+    background-color: grey;
+
+
+    /*
+    * Trick to crop an image by setting its position and hiding the overflow of it
+    */
+    overflow: hidden;
+    position: relative;
+}
+
+.tile img
+{
+    /*
+    * Trick to crop an image by setting its position and hiding the overflow of it
+    */
+    position: absolute;
+    top: 0px;
+    left: 0px;
+
+    /*
+    * Allow the image to resize with the tile parent size
+    */
+    width: 100%;
+    height: auto;
+
+
+    /*
+    * Will use opacity to reveal the tile image (at 0 = hidden, 1 = visible)
+    */
+    opacity: 0;
+}
+
+#tileReference
+{
+    /*
+    * Hide the tile used to duplicate and create the new ones
+    */
+    display: none;
+}
+
+
+
+#timerBackground
+{
+    /*
+    * These are CSS variables
+    * Link : https://developer.mozilla.org/fr/docs/Web/CSS/Using_CSS_custom_properties
+    */
+    --heightTimer: 20px;
+    --colorTimer: rgb(233, 27, 89);
+
+
+    /*
+    * Used to horizontally center the element
+    */
+    left: 0;
+    right: 0;
+    margin: auto;
+    margin-top: 50px;
+
+
+    width: 80%;
+    height: var(--heightTimer);
+    background-color: white;
+    border: 2px solid var(--colorTimer);
+}
+
+#timerForeground
+{
+    width: 0%;
+    height: var(--heightTimer);
+    background-color: var(--colorTimer);
+
+
+    /*
+    * Free Timer animation : in JS set the transition-duration to value needed + set width at 100% to start the timer
+    * It's more a trick than a real solution to animate the timer
+    * The pros : really easy to setup / CSS manage all alone the animation once launched / almost no JS
+    * The cons : to pause / reset it needs to hack a bit / not easily adaptable to differents forms / will need way more JS when needing to add other features or to make it do something else
+    * Conclusion : convenient in very particular cases to be sure before using it.
+    */
+    transition-timing-function: linear;
+    transition-duration: 60s;
+}
+
+#timerText
+{
+    position:relative;
+    bottom: 24px;
+
+    font-size: 1.5em;
+    text-align: center;
+    font-weight: bold;
+}
