@@ -127,6 +127,16 @@ body
     * Will use opacity to reveal the tile image (at 0 = hidden, 1 = visible)
     */
     opacity: 0;
+    
+
+    /*
+    * Prevent the user to select the image -> better flow when clicking on them
+    */
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
 }
 
 #tileReference
