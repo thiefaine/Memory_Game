@@ -15,12 +15,6 @@ cd folder_with_docker_file
 docker build -t username/memory-game .
 ```
 
-Or use a pre built image directly from docker hub : https://hub.docker.com/repository/docker/thiefaine/memory_game_oclock/general
-
-```bash
-docker pull thiefaine/memory_game_oclock:latest
-```
-
 then run it :
 
 ```bash
