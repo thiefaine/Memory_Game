@@ -1,4 +1,4 @@
-// ============ MODULES ============ 
+// ============ MODULES ============
 const http = require('http');
 const express = require('express')
 const sqlite3 = require('sqlite3').verbose();
@@ -6,10 +6,14 @@ const socketIO = require('socket.io');
 
 const port = 3000;
 
-// ============ INIT ============ 
+// ============ INIT ============
 var app = express();
 var server = http.Server(app);
 var io = socketIO(server);
+
+
+
+
 
 // Add the folder 'public' to be used without settings the path everytime
 app.use(express.static('public'));
